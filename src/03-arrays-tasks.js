@@ -470,8 +470,9 @@ function getIntervalArray(/* start, end */) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  const res = new Set(arr);
+  return res;
 }
 
 /**
@@ -562,8 +563,17 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  const head = arr.slice(0, arr.length / 2);
+  const tail = arr.slice((arr.length / 2) + 1, arr.length);
+  let res = null;
+  if (arr.length % 2 !== 0) {
+    const mid = arr.slice(arr.length / 2, (arr.length / 2) + 1);
+    res = tail.concat(mid, head);
+  } else {
+    res = tail.concat(head);
+  }
+  return res;
 }
 
 
